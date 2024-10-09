@@ -1,0 +1,72 @@
+body{
+    background-color: lavender;
+}
+.nav-item{
+    float:right;
+}
+@media screen and (min-width: 1100px) {
+    .mainDiv{
+        margin-left: 7rem;
+        margin-right:7rem;
+    }
+}
+@media screen and (max-width: 1100px) {
+.mainDiv{
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+}
+@media screen and (min-width: 992px) {
+    .nav2{
+        display:none;
+    }
+    .aboutTrans2{
+        display:none;
+    }
+}
+@media screen and (max-width:992px) {
+    .pillbar-collapse{
+        display:none;
+    }
+    .nav1{
+        display:none;
+}
+    .aboutTrans1{
+        display:none;
+    }
+}
+@media screen and (min-width:500px) {
+.footerBr{
+    display:none;
+}
+.contactTrans{
+    display:none;
+}
+}
+#vertNav{
+    position: fixed;
+    left:0%;
+    top:0;
+}
+.footerLine{
+    position: absolute;
+    left:0%;
+    bottom:5;
+}
+#vertNav a{
+    padding-top: 0.5rem;
+    padding-left:0.8rem;
+}
+.titleDiv{
+    float:left;
+}
+strong{
+    color:gray;
+}
+.navbar{
+    background-color: lavender;
+    margin:0;
+}
+.navbar .container-fluid{
+    background-color: lavender;
+}
