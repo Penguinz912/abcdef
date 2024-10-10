@@ -135,3 +135,9 @@ strong{
 .navbar .container-fluid{
     background-color: lavender;
 }
+.outerDiv1:hover{
+    border:solid purple;
+}
+.outerDiv2:hover{
+    border:solid blue;
+}
