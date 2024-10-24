@@ -1,0 +1,21 @@
+.row{
+    text-align: center;
+}
+.buttonDiv button{
+    padding-top:2rem;
+    padding-bottom:2rem;
+    padding-left:9rem;
+    padding-right:9rem;
+    margin:0;
+}
+body{
+    background-image: radial-gradient(blue,purple)
+}
+#leftScreen{
+    background-color:gray;
+    margin-left:15rem;
+}
+#rightScreen button{
+    margin-top: 1rem;
+    margin-right:10rem;
+}
