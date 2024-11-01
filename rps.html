@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor Simulator</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        #p1, #p2{
+            height: 12rem;
+            width: 12rem;
+        }
+        #one,#two{
+            display:inline-block;
+            /*border: 1px solid black;*/
+            padding: 1rem 4rem 1rem 4rem;
+        }
+        
+        #btn1,#btn2{
+            padding: .5rem 1rem .5rem 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rock Paper Scissors Simulator</h1>
+    <br>
+    <div id="one">
+        <h2>Player 1</h2>
+        <br>
+        <div id="p1">
+            <p id="result1"> </p>
+        </div>
+    </div>
+    <div id="two">
+        <h2>Player 2</h2>
+        <br>
+        <div  id="p2">
+            <p id="result2"> </p>
+        </div>
+    </div>
+    <br>
+    <div class="buttonDiv">
+        <button onclick="displayResult(1)" id="btn1">Rock</button>
+        <button onclick="displayResult(2)" id="btn1">Paper</button>
+        <button onclick="displayResult(3)" id="btn1">Scissors</button>
+    </div><br>
+    <p id="status">Status: Waiting for game to begin...</p>
+    <p id="userWins">Wins: 0</p>
+    <p id="cpuWins">Losses: 0</p>
+    <p id="tieCount">Ties: 0</p>
+    <script>
+        let playerWins = 0
+        let cpuWins = 0
+        let tieCount = 0
+        function getRandom() {
+            let n =Math.floor(Math.random()*3);
+            console.log(n)
+            return n
+        }
+        let p1Outcome = -1
+        let p2Outcome = -1
+        
+        function displayResult(x) {
+            if (x===1) {
+            const result1 = document.querySelector("#result1")
+            const result2 = document.querySelector("#result2")
+            result1.textContent="Paper!"
+            let n = getRandom()
+            if (n===0)
+                result2.textContent="Paper!"
+            if (n===1)
+                result2.textContent="Rock!"
+            if (n===2)
+                result2.textContent="Scissors!"
+            document.querySelector("#status").textContent="Status: Waiting for Player 2..."
+            p1Outcome=x
+            p2Outcome=n
+        }
+        if (x===2) {
+            const result1 = document.querySelector("#result1")
+            const result2 = document.querySelector("#result2")
+            result1.textContent="Rock!"
+            let n = getRandom()
+            if (n===0)
+            result2.textContent="Paper!"
+            if (n===1)
+            result2.textContent="Rock!"
+            if (n===2)
+            result2.textContent="Scissors!"
+            document.querySelector("#status").textContent="Status: Waiting for Player 1..."
+            p1Outcome=x
+            p2Outcome=n
+        }
+        if (x===3) {
+            const result1 = document.querySelector("#result1")
+            const result2 = document.querySelector("#result2")
+            result1.textContent="Scissors!"
+            let n = getRandom()
+            if (n===0)
+            result2.textContent="Paper!"
+            if (n===1)
+            result2.textContent="Rock!"
+            if (n===2)
+            result2.textContent="Scissors!"
+            document.querySelector("#status").textContent="Status: Waiting for Player 1..."
+            p1Outcome=x
+            p2Outcome=n
+        }
+        if (p1Outcome!=(-1) && p2Outcome!=(-1)) {
+            if (p1Outcome===0) {
+                if (p2Outcome===0){
+                    document.querySelector("#status").textContent="Status: It's a draw";
+                    tieCount++;
+                    document.querySelector("#tieCount").textContent="Ties: "+tieCount;
+                }
+                if (p2Outcome===1){
+                    document.querySelector("#status").textContent="Status: Player wins";
+                    playerWins++;
+                    document.querySelector("#userWins").textContent="Wins: "+playerWins;
+                }
+                if (p2Outcome===2){
+                    document.querySelector("#status").textContent="Status: CPU wins";
+                    cpuWins++;
+                    document.querySelector("#cpuWins").textContent="Losses: "+cpuWins;
+                }
+            }
+            if (p1Outcome===1) {
+                if (p2Outcome===1){
+                    document.querySelector("#status").textContent="Status: It's a draw";
+                    tieCount++;
+                    document.querySelector("#tieCount").textContent="Ties: "+tieCount;
+                }
+                if (p2Outcome===0){
+                    document.querySelector("#status").textContent="Status: CPU wins";
+                    cpuWins++;
+                    document.querySelector("#cpuWins").textContent="Losses: "+cpuWins;
+                }
+                if (p2Outcome===2){
+                    document.querySelector("#status").textContent="Status: CPU wins";
+                    cpuWins++;
+                    document.querySelector("#cpuWins").textContent="Losses: "+cpuWins;
+                }
+            }
+            if (p1Outcome===2) {
+                if (p2Outcome===2){
+                    document.querySelector("#status").textContent="Status: It's a draw";
+                    tieCount++;
+                    document.querySelector("#tieCount").textContent="Ties: "+tieCount;
+                }
+                if (p2Outcome===1){
+                    document.querySelector("#status").textContent="Status: Player wins";
+                    playerWins++;
+                    document.querySelector("#userWins").textContent="Wins: "+playerWins;
+                }
+                if (p2Outcome===0){
+                    document.querySelector("#status").textContent="Status: Player wins";
+                    playerWins++;
+                    document.querySelector("#userWins").textContent="Wins: "+playerWins;
+                }
+            }
+        }
+        }
+    </script>
+</body>
+</html>
