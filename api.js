@@ -34,11 +34,8 @@ getQuote.on("click",function() {
                 console.log(data2)
                 if (data1[0].author==="Tio Salamanca")
                     quoteImg.attr("src",data2.items[0].pagemap.cse_image[0].src)
-                if (data1[0].author==="Walter White")
-                    quoteImg.attr("src",data2.items[2].pagemap.cse_image[0].src)
                 if (data1[0].author==="The fly")
                     quoteImg.attr("src", data2.items[5].pagemap.cse_image[0].src)
-
                 else
                     quoteImg.attr("src",data2.items[1].pagemap.cse_image[0].src)
                  console.log("Data was fetched")
