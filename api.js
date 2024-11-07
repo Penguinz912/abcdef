@@ -8,8 +8,17 @@ const drinkIngrdnts = $('#ingredients');
 const drinkMeasure = $('#measure');
 const drinkImg = $('#drinkImg');
 const drinkStructions = $('#instructions');
-const getFact = $('#getFact');
-const getMeow = $("#getMeow");
+const getFact1 = $('#getFact1');
+const getFact2 = $('#getFact2');
+const getFact3 = $('#getFact3');
+const getFact4 = $('#getFact4');
+const getFact5 = $('#getFact5');
+const getMeow1 = $("#getMeow1");
+const getMeow2 = $("#getMeow2");
+const getMeow3 = $("#getMeow3");
+const getMeow4 = $("#getMeow4");
+const getMeow5 = $("#getMeow5");
+console.log(getQuote)
 getQuote.on("click",function() {
     let url1="https://api.breakingbadquotes.xyz/v1/quotes"
     console.log("Starting request...")
@@ -22,7 +31,16 @@ getQuote.on("click",function() {
         fetch(url2)
             .then((response)=>response.json())
             .then((data2)=>{
-                quoteImg.attr("src",data2.items[1].pagemap.cse_image[0].src)
+                console.log(data2)
+                if (data1[0].author==="Tio Salamanca")
+                    quoteImg.attr("src",data2.items[0].pagemap.cse_image[0].src)
+                if (data1[0].author==="Walter White")
+                    quoteImg.attr("src",data2.items[2].pagemap.cse_image[0].src)
+                if (data1[0].author==="The fly")
+                    quoteImg.attr("src", data2.items[5].pagemap.cse_image[0].src)
+
+                else
+                    quoteImg.attr("src",data2.items[1].pagemap.cse_image[0].src)
                  console.log("Data was fetched")
             })
             .catch((err1)=>{
@@ -69,7 +87,12 @@ getDrink.on("click",function(e) {
         console.log("Request Finished!")
     })
 })
-getFact.on("click",function(e) {
+getFact1.on("click",getCatFact)
+getFact2.on("click",getCatFact)
+getFact3.on("click",getCatFact)
+getFact4.on("click",getCatFact)
+getFact5.on("click",getCatFact)
+function getCatFact() {
     let url1="https://cat-fact.herokuapp.com/facts"
             console.log("Starting request...")
             fetch(url1)
@@ -96,8 +119,13 @@ getFact.on("click",function(e) {
                 console.log(err)
                 console.log("Request Finished!")
             })
-})
-getMeow.on("click",function(e) {
+}
+getMeow1.on("click",getMeowFact)
+getMeow2.on("click",getMeowFact)
+getMeow3.on("click",getMeowFact)
+getMeow4.on("click",getMeowFact)
+getMeow5.on("click",getMeowFact)
+function getMeowFact() {
     let url1="https://meowfacts.herokuapp.com/?count=5"
             console.log("Starting request...")
             fetch(url1)
@@ -124,4 +152,4 @@ getMeow.on("click",function(e) {
                 console.log(err)
                 console.log("Request Finished!")
             })
-})
+}
